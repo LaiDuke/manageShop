@@ -26,9 +26,9 @@
 </head>
 <body>
 
-<div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div  class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Thêm hàng hóa mới</h5>
@@ -1771,27 +1771,62 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
 <script type="text/javascript">
-    $("#add_unit").click(function(){
-        $("#more").append('<div class="input-group">\n' +
-            '        <div class="form-row">\n' +
-            '            <div class="col-md-2">\n' +
-            '                <input>\n' +
-            '            </div>\n' +
-            '            <div class="col-md-2">\n' +
-            '                <input>\n' +
-            '            </div>\n' +
-            '            <div class="col-md-3">\n' +
-            '                <input>\n' +
-            '            </div>\n' +
-            '            <div class="col-md-2">\n' +
-            '                <input>\n' +
-            '            </div>\n' +
-            '        </div>\n' +
-            '        <div class="input-group-append" data-toggle="tooltip" title="Thêm thương hiệu" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">\n' +
-            '                <i class="fa fa-plus"></i>\n' +
-            '            </a></div>\n' +
-            '    </div>');
-    });
+
+    $(document).ready(function(){
+        var unitclk = 0;
+            $("#add_unit").click(function(){
+                if(unitclk==0){
+                    unitclk++;
+                    $("#more").append('<table id="tbmore">\n' +
+                        '    <tbody>\n' +
+                        '    <tr class="">\n' +
+                        '        <th><span>Tên đơn vị</span></th>\n' +
+                        '        <th><span>Giá trị quy đổi</span></th>\n' +
+                        '        <th><span >Giá bán</span></th>\n' +
+                        '        <th><span>Mã hàng</span></th>\n' +
+                        '        <th><span>Mã vạch</span></th>\n' +
+                        '        <th><span></span></th>\n' +
+                        '        <th></th>\n' +
+                        '    </tr>\n' +
+                        '<tr>\n' +
+                        '        <td><input type="text" class="form-control form-control-sm"></td>\n' +
+                        '        <td><input type="text" class="form-control form-control-sm"> </td>\n' +
+                        '        <td>\n' +
+                        '                <input type="text" class="form-control form-control-sm">\n' +
+                        '        </td>\n' +
+                        '        <td ><input type="text" class="form-control form-control-sm " maxlength="40" placeholder="Mã hàng tự động" ></td>\n' +
+                        '        <td><input type="text"  class="form-control form-control-sm " maxlength="13"></td>\n' +
+                        '        <td>\n' +
+                        '            <div><input type="checkbox"data-label="Bán trực tiếp"checked="checked"><a href="javascript:void(0)" tabindex="0" class="checked"></a>\n' +
+                        '                <label for="undefined" class="checked">Bán trực tiếp</label></div>\n' +
+                        '\n' +
+                        '        </td>\n' +
+                        '        <td class="pr-0"><button type="button" class="btn-danger btn-sm" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\n' +
+                        '    </tr>' +
+                        '    </tbody>\n' +
+                        '</table>');
+                }
+                else{
+                    $("#tbmore").append('                        \'<tr>\\n\' +\n' +
+                        '                        \'        <td><input type="text" class="form-control form-control-sm"></td>\\n\' +\n' +
+                        '                        \'        <td><input type="text" class="form-control form-control-sm"> </td>\\n\' +\n' +
+                        '                        \'        <td>\\n\' +\n' +
+                        '                        \'                <input type="text" class="form-control form-control-sm">\\n\' +\n' +
+                        '                        \'        </td>\\n\' +\n' +
+                        '                        \'        <td ><input type="text" class="form-control form-control-sm " maxlength="40" placeholder="Mã hàng tự động" ></td>\\n\' +\n' +
+                        '                        \'        <td><input type="text"  class="form-control form-control-sm " maxlength="13"></td>\\n\' +\n' +
+                        '                        \'        <td>\\n\' +\n' +
+                        '                        \'            <div><input type="checkbox"data-label="Bán trực tiếp"checked="checked"><a href="javascript:void(0)" tabindex="0" class="checked"></a>\\n\' +\n' +
+                        '                        \'                <label for="undefined" class="checked">Bán trực tiếp</label></div>\\n\' +\n' +
+                        '                        \'\\n\' +\n' +
+                        '                        \'        </td>\\n\' +\n' +
+                        '                        \'        <td class="pr-0"><button type="button" class="btn-danger btn-sm" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\\n\' +\n' +
+                        '                        \'    </tr>\' +\n');
+                }
+            });
+    })
+
+
 </script>
 
 </body>
