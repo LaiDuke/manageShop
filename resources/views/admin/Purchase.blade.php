@@ -31,7 +31,7 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm hàng hóa mới</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Thêm hàng hóa mới</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,19 +40,27 @@
                 <form>
                     <div class="form-row">
                         <div class="col-md-6">
-                            <div class="position-relative form-group"><label for="ID">Mã hàng hóa</label><input
+                            <div class="position-relative form-group"><label for="ID"><strong>Mã hàng hóa</strong></label><input
                                     name="ID" class="form-control" id="ID" type="number" placeholder="Đánh mã tự động">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="position-relative form-group"><label for="QRcode">Mã vạch</label><input
+                            <div class="position-relative form-group"><label for="QRcode"><strong>Mã vạch</strong></label><input
                                     name="QRcode" class="form-control" id="QRcode" type="number" placeholder=""></div>
                         </div>
                     </div>
-                    <div class="position-relative form-group"><label for="name">Tên hàng hóa</label><input
-                            name="name" class="form-control" id="name" type="text"
-                            placeholder=""></div>
-                    <div class="position-relative form-group"><label for="category_id">Nhóm hàng</label>
+                    <div class="form-row">
+                        <div class="col-md-8">
+                            <div class="position-relative form-group"><label for="name"><strong>Tên hàng hóa</strong></label><input
+                                    name="name" class="form-control" id="name" type="text"
+                                    placeholder=""></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="position-relative form-group"><label for="price"><strong>Giá bán </strong><i class="fa fa-tags"></i></label><input
+                                    name="price" class="form-control" id="price" type="number" placeholder=""></div>
+                        </div>
+                    </div>
+                    <div class="position-relative form-group"><label for="category_id"><strong>Nhóm hàng</strong></label>
                         <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
                                 <option value="">Chọn nhóm hàng</option>
                                 <option>Value 1</option>
@@ -66,7 +74,7 @@
                                 </a></div>
                         </div>
                     </div>
-                    <div class="position-relative form-group"><label for="category_id">Thương hiệu</label>
+                    <div class="position-relative form-group"><label for="category_id"><strong>Thương hiệu</strong></label>
                         <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
                                 <option value="">Chọn thương hiệu</option>
                                 <option>Value 1</option>
@@ -82,7 +90,7 @@
 
 
                     </div>
-                    <div class="position-relative form-group"><label for="category_id">Vị trí</label>
+                    <div class="position-relative form-group"><label for="category_id"><strong>Vị trí</strong></label>
                         <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
                                 <option value="">Chọn vị trí</option>
                                 <option>Value 1</option>
@@ -96,37 +104,38 @@
                                 </a></div>
                         </div>
                     </div>
-                    <div class="position-relative form-group"><label for="exampleFile">File</label><input name="file" class="form-control-file" id="exampleFile" type="file">
+                    <div class="position-relative form-group"><label for="exampleFile"><strong>Ảnh</strong></label><input name="file" class="form-control-file" id="exampleFile" type="file">
                     </div>
-                    <div class="position-relative form-group"><label for="name">Đơn vị tính</label>
-                        <div class="input-group">
-                            <input
-                                name="name" class="form-control" id="name" type="text"
-                                placeholder="">
-                            <div class="input-group-append" data-toggle="tooltip" title="Thêm đơn vị" data-placement="bottom"><a class="mb-2 form-control" type="button" name="add_unit" id="add_unit">
-                                    <i class="fa fa-plus"></i>
-                                </a></div>
-                        </div>
-                        <div id="more"></div>
-                    </div>
-                    <div class="position-relative form-group"><label for="name">Nhập thuộc tính</label>
-                        <div class="input-group">
-                            <select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
-                                <option value="">Chọn thuộc tính</option>
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                                <option>Value 4</option>
-                                <option>Thêm thuộc tính</option>
-                            </select>
-                            <input
-                                name="name" class="form-control" id="name" type="text"
-                                placeholder="">
-                            <div class="input-group-append" data-toggle="tooltip" title="Thêm thuộc tính" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
-                                    <i class="fa fa-plus"></i>
-                                </a></div>
+                    <div class="position-relative form-group">
+                        <div class="card">
+                            <div class="card-header" style="background: #dedede">
+                                <label for="name">Đơn vị tính</label>
+                            </div>
+                            <div class="card-body">
+                                <label for="name">Đơn vị cơ bản</label>
+                                <div class="input-group">
+                                    <input
+                                        name="name" class="form-control" id="name" type="text"
+                                        placeholder="">
+                                    <div class="input-group-append" data-toggle="tooltip" title="Thêm đơn vị" data-placement="bottom"><a class="mb-2 form-control" type="button" id="add_unit">
+                                            <i class="fa fa-plus"></i>
+                                        </a></div>
+                                </div>
+                                <div id="more"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="position-relative form-group">
+                        <div class="card">
+                            <div class="card-header" style="background: #dedede">
+                                <label for="name">Nhập thuộc tính</label>
+                            </div>
+                            <div class="card-body" id="morepro">
+                                </div>
+                            <a type="button" class="btn" id="add_pro">Thêm thuộc tính <i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+
 
                     <div class="position-relative form-check"><input name="check" class="form-check-input"
                                                                      id="exampleCheck" type="checkbox"><label
@@ -1771,12 +1780,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
 <script type="text/javascript">
-
+    var unitclk = 0;
+    var proclk = 0;
     $(document).ready(function(){
-        var unitclk = 0;
+        $("#add_pro").click(function () {
+            $('#morepro').append('<div class="input-group" id="input'+proclk+'">\n' +
+                '                                    <select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">\n' +
+                '                                        <option value="">Chọn thuộc tính</option>\n' +
+                '                                        <option>Value 1</option>\n' +
+                '                                        <option>Value 2</option>\n' +
+                '                                        <option>Value 3</option>\n' +
+                '                                        <option>Value 4</option>\n' +
+                '                                        <option>Thêm thuộc tính</option>\n' +
+                '                                    </select>\n' +
+                '                                    <input\n' +
+                '                                        name="name" class="form-control" id="name" type="text"\n' +
+                '                                        placeholder="">\n' +
+                '                                    <div class="input-group-append" data-toggle="tooltip" title="Xóa thuộc tính" data-placement="bottom"><a class="mb-2 form-control closepro"  id="'+proclk+'" data-toggle="modal">\n' +
+                '                                            <i class="fa fa-trash"></i>\n' +
+                '                                        </a></div>\n' +
+                '                                </div>');
+
+        });
+
             $("#add_unit").click(function(){
                 if(unitclk==0){
-                    unitclk++;
                     $("#more").append('<table id="tbmore">\n' +
                         '    <tbody>\n' +
                         '    <tr class="">\n' +
@@ -1788,11 +1816,11 @@
                         '        <th><span></span></th>\n' +
                         '        <th></th>\n' +
                         '    </tr>\n' +
-                        '<tr>\n' +
+                        '<tr id="unitrow'+unitclk+'">\n' +
                         '        <td><input type="text" class="form-control form-control-sm"></td>\n' +
-                        '        <td><input type="text" class="form-control form-control-sm"> </td>\n' +
+                        '        <td><input type="number" class="form-control form-control-sm" value="1"> </td>\n' +
                         '        <td>\n' +
-                        '                <input type="text" class="form-control form-control-sm">\n' +
+                        '                <input type="number" class="form-control form-control-sm" value="0">\n' +
                         '        </td>\n' +
                         '        <td ><input type="text" class="form-control form-control-sm " maxlength="40" placeholder="Mã hàng tự động" ></td>\n' +
                         '        <td><input type="text"  class="form-control form-control-sm " maxlength="13"></td>\n' +
@@ -1801,36 +1829,53 @@
                         '                <label for="undefined" class="checked">Bán trực tiếp</label></div>\n' +
                         '\n' +
                         '        </td>\n' +
-                        '        <td class="pr-0"><button type="button" class="btn-danger btn-sm" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\n' +
+                        '        <td class="pr-0"><button id="'+unitclk+'" type="button" class="btn-danger btn-sm closeunit" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\n' +
                         '    </tr>' +
                         '    </tbody>\n' +
                         '</table>');
+                    unitclk++;
                 }
                 else{
-                    $("#tbmore").append('                        \'<tr>\\n\' +\n' +
-                        '                        \'        <td><input type="text" class="form-control form-control-sm"></td>\\n\' +\n' +
-                        '                        \'        <td><input type="text" class="form-control form-control-sm"> </td>\\n\' +\n' +
-                        '                        \'        <td>\\n\' +\n' +
-                        '                        \'                <input type="text" class="form-control form-control-sm">\\n\' +\n' +
-                        '                        \'        </td>\\n\' +\n' +
-                        '                        \'        <td ><input type="text" class="form-control form-control-sm " maxlength="40" placeholder="Mã hàng tự động" ></td>\\n\' +\n' +
-                        '                        \'        <td><input type="text"  class="form-control form-control-sm " maxlength="13"></td>\\n\' +\n' +
-                        '                        \'        <td>\\n\' +\n' +
-                        '                        \'            <div><input type="checkbox"data-label="Bán trực tiếp"checked="checked"><a href="javascript:void(0)" tabindex="0" class="checked"></a>\\n\' +\n' +
-                        '                        \'                <label for="undefined" class="checked">Bán trực tiếp</label></div>\\n\' +\n' +
-                        '                        \'\\n\' +\n' +
-                        '                        \'        </td>\\n\' +\n' +
-                        '                        \'        <td class="pr-0"><button type="button" class="btn-danger btn-sm" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\\n\' +\n' +
-                        '                        \'    </tr>\' +\n');
+                    $("#tbmore").append('<tr id="unitrow'+unitclk+'">\n' +
+                        '<td><input type="text" class="form-control form-control-sm"></td>\n' +
+                        '<td><input type="number" class="form-control form-control-sm" value="1"> </td>\n' +
+                        '    <td><input type="number" class="form-control form-control-sm" value="0"></td>\n' +
+                        '    <td><input type="text" class="form-control form-control-sm " maxlength="40" placeholder="Mã hàng tự động" ></td>\n' +
+                        '    <td><input type="text"  class="form-control form-control-sm " maxlength="13"></td>\n' +
+                        '    <td>\n' +
+                        '        <div><input type="checkbox" data-label="Bán trực tiếp"checked="checked"><a href="javascript:void(0)" tabindex="0" class="checked"></a>\n' +
+                        '            <label for="undefined" class="checked">Bán trực tiếp</label></div>\n' +
+                        '    </td>\n' +
+                        '    <td class="pr-0"><button type="button" class="btn-danger btn-sm closeunit" id="'+unitclk+'" title="Xóa đơn vị" ><i class="fa fa-trash"></i></button></td>\n' +
+                        '</tr>');
+                    unitclk++;
                 }
             });
     })
+    $(document).on('click', '.closeunit', function(){
 
+        var button_id = $(this).attr("id");
 
+        $('#unitrow'+button_id+'').remove();
+        unitclk--;
+        if(unitclk==0){
+            $("#tbmore").remove();
+        }
+
+    });
+    $(document).on('click', '.closepro', function(){
+
+        var button_id = $(this).attr("id");
+
+        $('#input'+button_id+'').remove();
+        unitclk--;
+
+    });
 </script>
 
 </body>
 </html>
+
 
 
 
