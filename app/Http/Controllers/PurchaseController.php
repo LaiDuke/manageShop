@@ -81,4 +81,7 @@ class PurchaseController extends Controller
     {
         //
     }
+    public function newPurchase(Request $request){
+
+    }
 }
