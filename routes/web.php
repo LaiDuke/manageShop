@@ -23,3 +23,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('Purchase', 'PurchaseController');
+Route::post('/Purchase', 'PurchaseController@newPurchase');

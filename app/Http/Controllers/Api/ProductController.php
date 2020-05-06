@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,17 +14,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        return view('admin/Purchase');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        dd("haha");
     }
 
     /**
@@ -34,7 +25,7 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        dd("haha");
+        dd("hahaha");
     }
 
     /**
@@ -45,18 +36,7 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        dd("haha");
     }
 
     /**
@@ -68,7 +48,7 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd("haha");
     }
 
     /**
@@ -80,8 +60,5 @@ class PurchaseController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function newPurchase(Request $request){
-
     }
 }

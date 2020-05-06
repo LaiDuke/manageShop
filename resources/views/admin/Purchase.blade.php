@@ -11,6 +11,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <meta name="description" content="Highly configurable boxes best used for showing numbers in an user friendly way.">
     <meta name="msapplication-tap-highlight" content="no">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -37,116 +38,130 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group"><label for="ID"><strong>Mã hàng hóa</strong></label><input
-                                    name="ID" class="form-control" id="ID" type="number" placeholder="Đánh mã tự động">
+                <form method="post" id="new_product" action="{{asset('Purchase')}}">
+                    @csrf
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="nav-item"><a class="nav-link show active" href="#tab-eg11-0" data-toggle="tab">Thuộc tính chung</a></li>
+                        <li class="nav-item"><a class="nav-link show" href="#tab-eg11-1" data-toggle="tab">Mô tả chi tiết</a></li>
+                        <li class="nav-item"><a class="nav-link show" href="#tab-eg11-2" data-toggle="tab">Hàng hòa đi kèm</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tab-eg11-0" role="tabpanel">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="ID"><strong>Mã hàng hóa</strong></label><input
+                                            name="ID" class="form-control" id="ID" type="number" placeholder="Đánh mã tự động">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="qr_code"><strong>Mã vạch</strong></label><input
+                                            name="qr_code" class="form-control" id="qr_code" type="number" placeholder=""></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group"><label for="QRcode"><strong>Mã vạch</strong></label><input
-                                    name="QRcode" class="form-control" id="QRcode" type="number" placeholder=""></div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-8">
-                            <div class="position-relative form-group"><label for="name"><strong>Tên hàng hóa</strong></label><input
-                                    name="name" class="form-control" id="name" type="text"
-                                    placeholder=""></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group"><label for="price"><strong>Giá bán </strong><i class="fa fa-tags"></i></label><input
-                                    name="price" class="form-control" id="price" type="number" placeholder=""></div>
-                        </div>
-                    </div>
-                    <div class="position-relative form-group"><label for="category_id"><strong>Nhóm hàng</strong></label>
-                        <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
-                                <option value="">Chọn nhóm hàng</option>
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                                <option>Value 4</option>
-                                <option>Value 5</option>
-                            </select>
-                            <div class="input-group-append" data-toggle="tooltip" title="Thêm nhóm hàng" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
-                                    <i class="fa fa-plus"></i>
-                                </a></div>
-                        </div>
-                    </div>
-                    <div class="position-relative form-group"><label for="category_id"><strong>Thương hiệu</strong></label>
-                        <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
-                                <option value="">Chọn thương hiệu</option>
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                                <option>Value 4</option>
-                                <option>Value 5</option>
-                            </select>
-                            <div class="input-group-append" data-toggle="tooltip" title="Thêm thương hiệu" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
-                                    <i class="fa fa-plus"></i>
-                                </a></div>
-                        </div>
-
-
-                    </div>
-                    <div class="position-relative form-group"><label for="category_id"><strong>Vị trí</strong></label>
-                        <div class="input-group"><select name="customSelect" class="custom-select" id="exampleCustomSelect" type="select">
-                                <option value="">Chọn vị trí</option>
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                                <option>Value 4</option>
-                                <option>Value 5</option>
-                            </select>
-                            <div class="input-group-append" data-toggle="tooltip" title="Thêm vị trí" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
-                                    <i class="fa fa-plus"></i>
-                                </a></div>
-                        </div>
-                    </div>
-                    <div class="position-relative form-group"><label for="exampleFile"><strong>Ảnh</strong></label><input name="file" class="form-control-file" id="exampleFile" type="file">
-                    </div>
-                    <div class="position-relative form-group">
-                        <div class="card">
-                            <div class="card-header" style="background: #dedede">
-                                <label for="name">Đơn vị tính</label>
+                            <div class="form-row">
+                                <div class="col-md-8">
+                                    <div class="position-relative form-group"><label for="name"><strong>Tên hàng hóa</strong></label><input
+                                            name="name" class="form-control" id="name" type="text"
+                                            placeholder=""></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="price"><strong>Giá bán </strong><i class="fa fa-tags"></i></label><input
+                                            name="price" class="form-control" id="price" type="number" placeholder=""></div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <label for="name">Đơn vị cơ bản</label>
-                                <div class="input-group">
-                                    <input
-                                        name="name" class="form-control" id="name" type="text"
-                                        placeholder="">
-                                    <div class="input-group-append" data-toggle="tooltip" title="Thêm đơn vị" data-placement="bottom"><a class="mb-2 form-control" type="button" id="add_unit">
+                            <div class="position-relative form-group"><label for="category_id"><strong>Nhóm hàng</strong></label>
+                                <div class="input-group"><select name="category_id" class="custom-select" id="category_id" type="select">
+                                        <option value="">Chọn nhóm hàng</option>
+                                        <option>Value 1</option>
+                                        <option>Value 2</option>
+                                        <option>Value 3</option>
+                                        <option>Value 4</option>
+                                        <option>Value 5</option>
+                                    </select>
+                                    <div class="input-group-append" data-toggle="tooltip" title="Thêm nhóm hàng" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
                                             <i class="fa fa-plus"></i>
                                         </a></div>
                                 </div>
-                                <div id="more"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="position-relative form-group">
-                        <div class="card">
-                            <div class="card-header" style="background: #dedede">
-                                <label for="name">Nhập thuộc tính</label>
-                            </div>
-                            <div class="card-body" id="morepro">
+                            <div class="position-relative form-group"><label for="brand_id"><strong>Thương hiệu</strong></label>
+                                <div class="input-group"><select name="brand_id" class="custom-select" id="brand_id" type="select">
+                                        <option value="">Chọn thương hiệu</option>
+                                        <option>Value 1</option>
+                                        <option>Value 2</option>
+                                        <option>Value 3</option>
+                                        <option>Value 4</option>
+                                        <option>Value 5</option>
+                                    </select>
+                                    <div class="input-group-append" data-toggle="tooltip" title="Thêm thương hiệu" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
+                                            <i class="fa fa-plus"></i>
+                                        </a></div>
                                 </div>
-                            <a type="button" class="btn" id="add_pro">Thêm thuộc tính <i class="fa fa-plus"></i></a>
+
+
                             </div>
+                            <div class="position-relative form-group"><label for="place_id"><strong>Vị trí</strong></label>
+                                <div class="input-group"><select name="place_id" class="custom-select" id="place_id" type="select">
+                                        <option value="">Chọn vị trí</option>
+                                        <option>Value 1</option>
+                                        <option>Value 2</option>
+                                        <option>Value 3</option>
+                                        <option>Value 4</option>
+                                        <option>Value 5</option>
+                                    </select>
+                                    <div class="input-group-append" data-toggle="tooltip" title="Thêm vị trí" data-placement="bottom"><a class="mb-2 form-control" data-toggle="modal" data-target="#addproduct">
+                                            <i class="fa fa-plus"></i>
+                                        </a></div>
+                                </div>
+                            </div>
+                            <div class="position-relative form-group"><label for="exampleFile"><strong>Ảnh</strong></label><input name="img1" class="form-control-file" id="img1" type="file">
+                            </div>
+                            <div class="position-relative form-group">
+                                <div class="card">
+                                    <div class="card-header" style="background: #dedede">
+                                        <label for="name">Đơn vị tính</label>
+                                    </div>
+                                    <div class="card-body">
+                                        <label for="name">Đơn vị cơ bản</label>
+                                        <div class="input-group">
+                                            <input
+                                                name="standard_unit" class="form-control" id="standard_unit" type="text"
+                                                placeholder="">
+                                            <div class="input-group-append" data-toggle="tooltip" title="Thêm đơn vị" data-placement="bottom"><a class="mb-2 form-control" type="button" id="add_unit">
+                                                    <i class="fa fa-plus"></i>
+                                                </a></div>
+                                        </div>
+                                        <div id="more"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative form-group">
+                                <div class="card">
+                                    <div class="card-header" style="background: #dedede">
+                                        <label for="name">Nhập thuộc tính</label>
+                                    </div>
+                                    <div class="card-body" id="morepro">
+                                    </div>
+                                    <a type="button" class="btn" id="add_pro">Thêm thuộc tính <i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                            <div class="position-relative form-check"><input name="order" class="form-check-input"
+                                                                             id="order" type="checkbox">
+                                <label class="form-check-label" for="exampleCheck">Bán trực tiếp</label></div>
                         </div>
-
-
-                    <div class="position-relative form-check"><input name="check" class="form-check-input"
-                                                                     id="exampleCheck" type="checkbox"><label
-                            class="form-check-label" for="exampleCheck">Check me out</label></div>
-                    <button class="mt-2 btn btn-primary">Sign in</button>
+                        <div class="tab-pane show" id="tab-eg11-1" role="tabpanel"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p></div>
+                        <div class="tab-pane show" id="tab-eg11-2" role="tabpanel"><p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p></div>
+                    </div>
+                    <button class="mt-2 btn btn-primary"  type="submit" id="new_pro_submit">Xác nhận</button>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
+{{--            <div class="modal-footer">--}}
+{{--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                <button type="submit" class="btn btn-primary">Save changes</button>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>
@@ -1871,6 +1886,9 @@
         unitclk--;
 
     });
+</script>
+<script type="text/javascript">
+
 </script>
 
 </body>
