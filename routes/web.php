@@ -14,12 +14,13 @@ use App\Http\Controllers\Api\ProductsController;
 */
 
 Route::get('/', function () {
-    $conTroll = new ProductsController();
-    $ls = $conTroll->index();
-    foreach ($ls as $l) {
-        dd($l->name);
-    }
-    dd(gettype($ls));
+//    $conTroll = new ProductsController();
+//    $ls = $conTroll->index();
+//    foreach ($ls as $l) {
+//        dd($l->name);
+//    }
+//    dd(gettype($ls));
+    return view("test");
 });
 
 Auth::routes();

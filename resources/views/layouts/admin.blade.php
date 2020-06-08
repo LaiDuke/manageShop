@@ -241,6 +241,7 @@
 </div>
 {{--đây là modal để add product--}}
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+{{--    đây là header--}}
     <div class="app-header header-shadow">
         <div class="app-header__logo">
             <div class="logo-src"></div>
@@ -345,6 +346,8 @@
             </div>
         </div>
     </div>
+    {{--    đây là header--}}
+    {{--    đây là nút cài đặt--}}
     <div class="ui-theme-settings">
         <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
             <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
@@ -711,7 +714,9 @@
             </div>
         </div>
     </div>
+    {{--    đây là nút cài đặt--}}
     <div class="app-main">
+        {{--    đây là slide bar--}}
         <div class="app-sidebar sidebar-shadow">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
@@ -940,6 +945,7 @@
                 </div>
             </div>
         </div>
+        {{--    đây là nút cài đặt--}}
         <div class="app-main__outer">
             <div class="app-main__inner">
                 <div class="app-page-title">
@@ -1012,6 +1018,7 @@
                         </div>
                     </div>
                 </div>
+{{--                Đây là phần thân chính--}}
                 <main><div class="">
                         <div class="row">
                             <div class="col-lg-6 col-xl-4">
@@ -1825,6 +1832,7 @@
                             </div>
                         </div>
                     </div></main>
+                {{--                Đây là phần thân chính--}}
             </div>
             <div class="app-wrapper-footer">
                 <div class="app-footer">
