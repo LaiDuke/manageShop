@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CategoriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('products', 'Api\ProductsController');
+Route::apiResource('categories', 'Api\CategoriesController');
+
+Route::get('posts', function() {
+    return response()->json([
+        'name' => 'Abigail',
+        'state' => 'CA'
+    ]);
+});

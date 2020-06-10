@@ -27,7 +27,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" id="new_product" action="{{asset("product")}}">
+                <form method="post" id="new_product" action="{{asset("index.php/api/products")}}">
                     @csrf
                     <ul class="nav nav-tabs nav-justified">
                         <li class="nav-item"><a class="nav-link show active" href="#tab-eg11-0" data-toggle="tab">Thuộc tính chung</a></li>
@@ -1974,9 +1974,7 @@
     $.ajaxSetup({
 
         headers: {
-
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
         }
 
     });
@@ -1984,20 +1982,17 @@
         event.preventDefault();
         let name = $('input[name=name_category]').val();
         let note = $('input[name=note_category]').val();
-        let check = "category";
         $.ajax({
-            url: "{{asset("/api/category")}}",
+            url: "{{asset("index.php/api/categories")}}",
             type:"POST",
             data:{
                 name:name,
                 note:note,
-                check:check
             },
             success:function(data){
                 $("#new_category")[0].reset();
                 $("#addcategory").removeClass("show");
                 alert(data.success);
-
             },
         });
     });
